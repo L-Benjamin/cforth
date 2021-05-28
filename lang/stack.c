@@ -25,8 +25,10 @@ cell_t stack_pop(stack_t *stack) {
 }
 
 void stack_push(stack_t *stack, cell_t val) {
-    if (stack->size == stack->capacity)
-        error("Stack overflow");
+    if (stack->size == stack->capacity) {
+        stack->capacity *= 2;
+        stack->cells = (cell_t*) realloc(stack->cells, stack->capacity);
+    }
 
     *(stack->cells + stack->size) = val;
     stack->size += sizeof(cell_t);

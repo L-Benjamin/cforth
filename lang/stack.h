@@ -1,15 +1,16 @@
 #ifndef __STACK_H__
 #define __STACK_H__
 
+#include <stdint.h>
 #include <stdlib.h>
 
 /* === cell_t === */
 
 /* A cell of the stack. */
 typedef union {
-    long long i;
-    double    f;
-    char      c;
+    int64_t i;
+    double  f;
+    char    c;
 } cell_t;
 
 /* === stack_t === */

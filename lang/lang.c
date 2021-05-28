@@ -1,6 +1,7 @@
 #include "lang.h"
 
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -30,7 +31,7 @@ static void make_value(word_t *word, cell_t cell) {
 }
 
 word_t *make_int(const char *src) {
-    long long i;
+    int64_t i;
     sscanf(src, "%ld", &i);
     
     word_t *word = word_init(NULL);
@@ -235,7 +236,7 @@ static void write_string(stack_t *stack) {
 }
 
 static void read_string(stack_t *stack) {
-    int i = 0; char c;
+    size_t i = 0; char c;
     do {
         BUFFER[i++] = (c = stack_pop(stack).c);
     } while(c);

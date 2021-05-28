@@ -6,6 +6,8 @@
 
 #include "lex.yy.c"
 
+#define INITIAL_STACK_SIZE 2048
+
 dict_t DICT;
 stack_t STACK;
 wbuf_t WBUF;
@@ -75,7 +77,7 @@ int main(int argc, char **argv) {
     DICT = dict_init();
     fill_dict(&DICT);
 
-    STACK = stack_init(2048);
+    STACK = stack_init(INITIAL_STACK_SIZE);
     WBUF = wbuf_init();
 
     if (argc != 2) error("Invalid number of arguments");
