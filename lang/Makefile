@@ -4,7 +4,7 @@ SRC = dict.c lang.c list.c stack.c word.c
 OBJ = $(SRC:.c=.o)
 
 build:
-	$(CC) $(FLAGS) $(SRC) -c
+	$(CC) $(FLAGS) -Wall $(SRC) -c
 	ar rs liblang.a $(OBJ)
 	rm -f $(OBJ)
 

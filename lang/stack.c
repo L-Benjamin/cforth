@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 stack_t stack_init(size_t max_capacity) {
     return (stack_t) {

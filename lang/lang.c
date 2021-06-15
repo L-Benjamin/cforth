@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 
 #define BUFFER_SIZE 1024
 char BUFFER[BUFFER_SIZE];

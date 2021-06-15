@@ -46,7 +46,7 @@ static void insert(dict_t *dict, word_t *word) {
     size_t i = strhash(word->name) % dict->capacity;
     word_t *w;
 
-    while (w = dict->words[i])
+    while ((w = dict->words[i]))
         i = (i + 1) % dict->capacity;
 
     dict->size++;
@@ -57,7 +57,7 @@ word_t *dict_get(dict_t *dict, const char *name) {
     size_t i = strhash(name) % dict->capacity;
     word_t *w;
 
-    while (w = dict->words[i]) {
+    while ((w = dict->words[i])) {
         if (strcmp(w->name, name) == 0)
             return w;
         i = (i + 1) % dict->capacity;
